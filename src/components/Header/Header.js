@@ -1,13 +1,15 @@
-import React from 'react'
-import "./Header.css"
+import React from "react";
+import "./Header.css";
 
-export default function Header({
-    title
-}) {
-    return (
-        <>
-            <h1 title="Header" className="header">{title}</h1>
-            {/* <h3 data-testid="header-2" className="header">Hello</h3> */}
-        </>
-    )
+export default function Header({ title }) {
+  return (
+    <>
+      <h1 className="header" data-testid="header-1">
+        {title}
+      </h1>
+      <h2 title="h2" className="header">
+        H2
+      </h2>
+    </>
+  );
 }
