@@ -22,7 +22,7 @@ describe("AddInput", () => {
     expect(inputElement.value).toBe("Go Grocery Shopping");
   });
 
-  it("add 버튼을 클릭하면 setTodos 함수가 실행되어야 합니다.", () => {
+  it("add 버튼을 클릭하면 setTodos 함수가 실행되어야 합니다..", () => {
     render(<AddInput todos={[]} setTodos={mockedSetTodo} />);
 
     const inputElement = screen.getByPlaceholderText(/Add a new task here.../i);
