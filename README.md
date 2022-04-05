@@ -14,3 +14,34 @@
 
 컴포넌트의 작업을 위한 api를 추가하여 DOM Testing Library 위에 구축됩니다. DOM Testing Library는 DOM의 node를 테스트하기 위한 매우 가벼운 라이브러리 입니다.  
 RTL는 컴포넌트의 구현 세부 정보를 테스트 하기 보다 사용자의 행위를 기반하여 테스트하는 것을 중점으로 둡니다.
+
+## Jest란?
+
+페이스북에서 만들어진 테스팅 프레임 워크. 최소한의 설정으로 동작하며 test case를 만들어서 어플리케이션 코드가 잘 돌아가는지 확인하는 라이브러리입니다. 유닛테스트에서 사용합니다.
+
+- describe 안에 test(it)으로 구조를 생성할 수 있습니다.
+- expect: 값을 테스트 할 때마다 사용되고, 단독으로 사용되지 않고 matcher(toBe 등)와 함께 사용합니다.
+- matcher: 값을 비교하는 메서드를 말합니다.
+  https://github.com/testing-library/jest-dom
+
+## eslint 설정
+
+```
+ npm install eslint-plugin-testing-library eslint-plugin-jest-dom
+```
+
+```
+// .eslintrc.json
+{
+    "plugins": [
+        "testing-library",
+        "jest-dom"
+    ],
+    "extends": [
+        "react-app",
+        "react-app/jest",
+        "plugin:testing-library/react",
+        "plugin:jest-dom/recommended"
+    ]
+}
+```
