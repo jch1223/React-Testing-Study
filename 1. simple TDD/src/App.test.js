@@ -34,3 +34,9 @@ test("플러스 버튼을 눌렀을 때 count가 증가하여야 합니다.", ()
   const countElement = screen.getByTestId("count");
   expect(countElement).toHaveTextContent(1);
 });
+
+test("on/off 버튼은 빨간색이어야 합니다.", () => {
+  render(<App />);
+  const button = screen.getByTestId("on-off-button");
+  expect(button).toHaveStyle({ backgroundColor: "red" });
+});
