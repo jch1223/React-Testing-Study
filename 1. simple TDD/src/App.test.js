@@ -40,3 +40,18 @@ test("on/off 버튼은 빨간색이어야 합니다.", () => {
   const button = screen.getByTestId("on-off-button");
   expect(button).toHaveStyle({ backgroundColor: "red" });
 });
+
+test("on/off 버튼을 클릭 했을 때 +,- 버튼 disable이 트리거 되어야 합니다.", () => {
+  render(<App />);
+  const onOffButton = screen.getByTestId("on-off-button");
+  const plusButton = screen.getByTestId("plus-button");
+  const minusButton = screen.getByTestId("minus-button");
+
+  fireEvent.click(onOffButton);
+  expect(plusButton).toBeDisabled();
+  expect(minusButton).toBeDisabled();
+
+  fireEvent.click(onOffButton);
+  expect(plusButton).not.toBeDisabled();
+  expect(minusButton).not.toBeDisabled();
+});
