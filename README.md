@@ -45,3 +45,9 @@ RTL는 컴포넌트의 구현 세부 정보를 테스트 하기 보다 사용자
     ]
 }
 ```
+
+## error 해결 상황
+
+### react 18버전에서 test-library 버전 호환성 에러
+
+- `testlibray in react 18` 키워드로 검색 후 https://stackoverflow.com/questions/71685441/react-testing-library-gives-console-error-for-reactdom-render-in-react-18 글을 확인하여 test-library 최신 버전으로 업데이트
