@@ -1,6 +1,33 @@
 # React Test Study
 
-## 테스팅으로 얻는 이점
+## INTRO
+
+### 참고 문서
+
+- https://www.robinwieruch.de/react-testing-library/
+- https://www.freecodecamp.org/news/testing-react-hooks/
+- https://www.freecodecamp.org/news/8-simple-steps-to-start-testing-react-apps-using-react-testing-library-and-jest/
+
+### unit 테스트
+
+- 쉽게 이야기 하면 컴포넌트 단위의 테스트. 하나의 컴포넌트로 분리되어 있어야 한다.
+- props 등 데이터에 대한 변경이 있을 때 올바른 데이터가 나오는가?
+
+### 통합 테스트
+
+- 하나의 데이터가 변경되었을 때 여러 컴포넌트가 변경되는 것을 테스트
+
+### e2e 테스트
+
+- 유저 flow에 대한 테스트
+
+### 테스트 기준
+
+- props가 잘 전달 되는지 확인.
+- 같은 데이터이지만 갯수 등에 따라 다른 데이터가 렌더링 되어야 한다면 확인.
+- 하나의 테스트 케이스에서는 하나의 기능만 테스트하는 것이 에러 발생시 추적이 쉽기 때문에 권장.
+
+### 테스팅으로 얻는 이점
 
 1. 디버깅 시간을 단축할 수 있습니다. 데이터가 잘못 나왔을 때 UI의 문제인지 DB의 문제인지 등 쉽게 찾아 낼 수 있습니다.
 2. 많은 테스트 코드와 함께 작성된 어플리케이션은 좀 더 안정적입니다.
@@ -14,6 +41,15 @@
 
 컴포넌트의 작업을 위한 api를 추가하여 DOM Testing Library 위에 구축됩니다. DOM Testing Library는 DOM의 node를 테스트하기 위한 매우 가벼운 라이브러리 입니다.  
 RTL는 컴포넌트의 구현 세부 정보를 테스트 하기 보다 사용자의 행위를 기반하여 테스트하는 것을 중점으로 둡니다.
+
+### test queries 우선 순위
+
+- https://testing-library.com/docs/queries/about#priority
+
+### userEvent > fireEvent
+
+- fireEvent보다 userEvent를 사용하는 것을 권장.
+- fireEvent.click은 클릭만 수행되지만 userEvent.click은 사용자가 실제 클릭 했을 때 처럼 동작합니다. (button 클릭 시 focus가 되는 등)
 
 ## Jest란?
 

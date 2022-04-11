@@ -1,30 +1,5 @@
 # React Testing Study
 
-## 참고 문서
-
-- https://www.robinwieruch.de/react-testing-library/
-- https://www.freecodecamp.org/news/testing-react-hooks/
-- https://www.freecodecamp.org/news/8-simple-steps-to-start-testing-react-apps-using-react-testing-library-and-jest/
-
-## unit 테스트
-
-- 쉽게 이야기 하면 컴포넌트 단위의 테스트. 하나의 컴포넌트로 분리되어 있어야 한다.
-- props 등 데이터에 대한 변경이 있을 때 올바른 데이터가 나오는가?
-
-## 통합 테스트
-
-- 하나의 데이터가 변경되었을 때 여러 컴포넌트가 변경되는 것을 테스트
-
-## e2e 테스트
-
-- 유저 flow에 대한 테스트
-
-## 테스트 기준
-
-- props가 잘 전달 되는지 확인.
-- 같은 데이터이지만 갯수 등에 따라 다른 데이터가 렌더링 되어야 한다면 확인.
-- 하나의 테스트 케이스에서는 하나의 기능만 테스트하는 것이 에러 발생시 추적이 쉽기 때문에 권장.
-
 ## 테스트 케이스
 
 ### 엘리먼트 선택 `Header.test.jsx 참고`
