@@ -1,5 +1,7 @@
 import axios from "axios";
 import { FC, useEffect, useState } from "react";
+
+import ErrorBanner from "../common/ErrorBanner";
 import Products from "./Products";
 
 interface TypeProps {
@@ -8,6 +10,7 @@ interface TypeProps {
 
 const Type: FC<TypeProps> = ({ orderType }) => {
   const [items, setItems] = useState([]);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const loadItems = async (orderType: TypeProps["orderType"]) => {
@@ -15,12 +18,16 @@ const Type: FC<TypeProps> = ({ orderType }) => {
         const res = await axios.get(`http://localhost:5000/${orderType}`);
         setItems(res.data);
       } catch (error) {
-        console.error(error);
+        setError(true);
       }
     };
 
     loadItems(orderType);
   }, [orderType]);
+
+  if (error) {
+    return <ErrorBanner message="에러가 발생했습니다." />;
+  }
 
   return (
     <div>
