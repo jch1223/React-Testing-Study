@@ -10,7 +10,7 @@ const Products: FC<ProductsProps> = ({ name, imagePath }) => {
     <div style={{ textAlign: "center" }}>
       <img
         style={{ width: "75%" }}
-        src={`http://localhost:5000/${imagePath}`}
+        src={`http://localhost:5001/${imagePath}`}
         alt={`${name} product`}
       />
       <form style={{ marginTop: "10px" }}>

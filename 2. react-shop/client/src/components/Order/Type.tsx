@@ -16,7 +16,7 @@ const Type: FC<TypeProps> = ({ orderType }) => {
   useEffect(() => {
     const loadItems = async (orderType: TypeProps["orderType"]) => {
       try {
-        const res = await axios.get(`http://localhost:5000/${orderType}`);
+        const res = await axios.get(`http://localhost:5001/${orderType}`);
         setItems(res.data);
       } catch (error) {
         setError(true);

@@ -7,8 +7,8 @@ interface OptionsProps {
 const Options: FC<OptionsProps> = ({ name }) => {
   return (
     <form>
-      <input type="checkbox" name="" id={`${name} option`} />{" "}
-      <label htmlFor={`${name} option`}></label>
+      <input type="checkbox" id={`${name} option`} />{" "}
+      <label htmlFor={`${name} option`}>{name}</label>
     </form>
   );
 };
