@@ -2,6 +2,7 @@ import axios from "axios";
 import { FC, useEffect, useState } from "react";
 
 import ErrorBanner from "../common/ErrorBanner";
+import Options from "./Options";
 import Products from "./Products";
 
 interface TypeProps {
@@ -40,6 +41,11 @@ const Type: FC<TypeProps> = ({ orderType }) => {
               imagePath={item.imagePath}
             />
           );
+        })}
+
+      {orderType === "options" &&
+        items.map((item) => {
+          return <Options key={item.name} name={item.name} />;
         })}
     </div>
   );

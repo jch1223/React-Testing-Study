@@ -30,3 +30,11 @@ test("데이터를 가져오는데에 실패하면 에러 배너가 나타나야
   const errorBanner = await screen.findByTestId("error-banner");
   expect(errorBanner).toHaveTextContent("에러가 발생했습니다.");
 });
+
+test("option 정보를 서버에서 부터 가지고 와야합니다.", async () => {
+  render(<Type orderType="options" />);
+
+  const optionCheckbox = await screen.findAllByRole("checkbox");
+
+  expect(optionCheckbox).toHaveLength(2);
+});
