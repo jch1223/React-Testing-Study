@@ -32,21 +32,38 @@ const Type: FC<TypeProps> = ({ orderType }) => {
 
   return (
     <div>
-      {orderType === "products" &&
-        items.map((item) => {
-          return (
-            <Products
-              key={item.name}
-              name={item.name}
-              imagePath={item.imagePath}
-            />
-          );
-        })}
+      <h2>주문 종류</h2>
+      <p>하나의 가격</p>
+      <p>총 가격:</p>
 
-      {orderType === "options" &&
-        items.map((item) => {
-          return <Options key={item.name} name={item.name} />;
-        })}
+      <div
+        style={{
+          display: "flex",
+        }}
+      >
+        {orderType === "products" &&
+          items.map((item) => {
+            return (
+              <Products
+                key={item.name}
+                name={item.name}
+                imagePath={item.imagePath}
+              />
+            );
+          })}
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        {orderType === "options" &&
+          items.map((item) => {
+            return <Options key={item.name} name={item.name} />;
+          })}
+      </div>
     </div>
   );
 };
