@@ -5,8 +5,10 @@ import ErrorBanner from "../common/ErrorBanner";
 import Options from "./Options";
 import Products from "./Products";
 
+export type OrderType = "products" | "options";
+
 interface TypeProps {
-  orderType: "products" | "options";
+  orderType: OrderType;
 }
 
 const Type: FC<TypeProps> = ({ orderType }) => {
