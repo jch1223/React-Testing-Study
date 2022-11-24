@@ -3,9 +3,16 @@ import { FC } from "react";
 interface ProductsProps {
   name: string;
   imagePath: string;
+  updateItemCount: (itemName: string, newItemCount: string) => void;
 }
 
-const Products: FC<ProductsProps> = ({ name, imagePath }) => {
+const Products: FC<ProductsProps> = ({ name, imagePath, updateItemCount }) => {
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+    const currentValue = event.target.value;
+
+    updateItemCount(name, currentValue);
+  };
+
   return (
     <div style={{ textAlign: "center" }}>
       <img
@@ -24,6 +31,7 @@ const Products: FC<ProductsProps> = ({ name, imagePath }) => {
           name="quantity"
           min="0"
           defaultValue={0}
+          onChange={handleChange}
         />
       </form>
     </div>

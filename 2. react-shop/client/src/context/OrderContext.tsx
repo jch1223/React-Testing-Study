@@ -33,19 +33,19 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
   });
 
   const [totals, setTotals] = useState({
-    productsTotal: 0,
-    optionsTotal: 0,
+    products: 0,
+    options: 0,
     total: 0,
   });
 
   useEffect(() => {
-    const productsTotal = calculateSubtotal("products", orderCounts);
-    const optionsTotal = calculateSubtotal("options", orderCounts);
-    const total = productsTotal + optionsTotal;
+    const products = calculateSubtotal("products", orderCounts);
+    const options = calculateSubtotal("options", orderCounts);
+    const total = products + options;
 
     setTotals({
-      productsTotal,
-      optionsTotal,
+      products,
+      options,
       total,
     });
   }, [orderCounts]);

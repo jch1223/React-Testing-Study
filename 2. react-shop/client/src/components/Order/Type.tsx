@@ -1,5 +1,6 @@
 import axios from "axios";
-import { FC, useEffect, useState } from "react";
+import { FC, useContext, useEffect, useState } from "react";
+import { OrderContext } from "../../context/OrderContext";
 
 import ErrorBanner from "../common/ErrorBanner";
 import Options from "./Options";
@@ -14,6 +15,8 @@ interface TypeProps {
 const Type: FC<TypeProps> = ({ orderType }) => {
   const [items, setItems] = useState([]);
   const [error, setError] = useState(false);
+
+  const [orderDatas, updateItemCount] = useContext(OrderContext);
 
   useEffect(() => {
     const loadItems = async (orderType: TypeProps["orderType"]) => {
@@ -36,7 +39,7 @@ const Type: FC<TypeProps> = ({ orderType }) => {
     <div>
       <h2>주문 종류</h2>
       <p>하나의 가격</p>
-      <p>총 가격:</p>
+      <p>총 가격: {orderDatas.totals[orderType]}</p>
 
       <div
         style={{
@@ -50,6 +53,9 @@ const Type: FC<TypeProps> = ({ orderType }) => {
                 key={item.name}
                 name={item.name}
                 imagePath={item.imagePath}
+                updateItemCount={(itemName, newItemCount) =>
+                  updateItemCount(itemName, newItemCount, orderType)
+                }
               />
             );
           })}
@@ -63,7 +69,15 @@ const Type: FC<TypeProps> = ({ orderType }) => {
       >
         {orderType === "options" &&
           items.map((item) => {
-            return <Options key={item.name} name={item.name} />;
+            return (
+              <Options
+                key={item.name}
+                name={item.name}
+                updateItemCount={(itemName, newItemCount) =>
+                  updateItemCount(itemName, newItemCount, orderType)
+                }
+              />
+            );
           })}
       </div>
     </div>
