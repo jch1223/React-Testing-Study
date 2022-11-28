@@ -65,6 +65,8 @@ describe("옵션과 상품 총 가격 계산", () => {
   });
 
   test("옵션이 추가 될 때 가격이 수정되어야 합니다", async () => {
+    render(<OrderPage />);
+
     const total = screen.getByText("Total Price:", { exact: false });
     const insuranceCheckbox = await screen.findByRole("checkbox", {
       name: "Insurance",
