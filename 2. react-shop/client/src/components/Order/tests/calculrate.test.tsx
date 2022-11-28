@@ -17,3 +17,25 @@ test("프로덕트가 변경되면 토탈 가격이 변경되어야 합니다.",
   userEvent.type(americaInput, "1");
   expect(productsTotal).toHaveTextContent("1000");
 });
+
+test("옵션이 변경되면 옵션 총 가격이 변경되어야 합니다.", async () => {
+  render(<Type orderType="options" />);
+
+  const optionsTotal = screen.getByText("총 가격:", { exact: false });
+  expect(optionsTotal).toHaveTextContent("0");
+
+  const insuranceCheckbox = await screen.findByRole("checkbox", {
+    name: "Insurance",
+  });
+  userEvent.click(insuranceCheckbox);
+  expect(optionsTotal).toHaveTextContent("500");
+
+  const dinnerCheckbox = await screen.findByRole("checkbox", {
+    name: "Dinner",
+  });
+  userEvent.click(dinnerCheckbox);
+  expect(optionsTotal).toHaveTextContent("1000");
+
+  userEvent.click(dinnerCheckbox);
+  expect(optionsTotal).toHaveTextContent("500");
+});
