@@ -1,12 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import { rest } from "msw";
+import { OrderContextProvider } from "../../../context/OrderContext";
 
 import { server } from "../../../mocks/server";
 
 import Type from "../Type";
 
 test("이미지가 렌더링 되어야 합니다.", async () => {
-  render(<Type orderType="products" />);
+  render(<Type orderType="products" />, { wrapper: OrderContextProvider });
 
   const productImages: HTMLImageElement[] = await screen.findAllByRole("img", {
     name: /product$/i,
@@ -25,14 +26,14 @@ test("데이터를 가져오는데에 실패하면 에러 배너가 나타나야
     })
   );
 
-  render(<Type orderType="products" />);
+  render(<Type orderType="products" />, { wrapper: OrderContextProvider });
 
   const errorBanner = await screen.findByTestId("error-banner");
   expect(errorBanner).toHaveTextContent("에러가 발생했습니다.");
 });
 
 test("option 정보를 서버에서 부터 가지고 와야합니다.", async () => {
-  render(<Type orderType="options" />);
+  render(<Type orderType="options" />, { wrapper: OrderContextProvider });
 
   const optionCheckbox = await screen.findAllByRole("checkbox");
 
