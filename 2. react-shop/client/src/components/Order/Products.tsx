@@ -3,14 +3,14 @@ import { FC } from "react";
 interface ProductsProps {
   name: string;
   imagePath: string;
-  updateItemCount: (itemName: string, newItemCount: string) => void;
+  updateItemCount: (itemName: string, newItemCount: number) => void;
 }
 
 const Products: FC<ProductsProps> = ({ name, imagePath, updateItemCount }) => {
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
     const currentValue = event.target.value;
 
-    updateItemCount(name, currentValue);
+    updateItemCount(name, Number(currentValue));
   };
 
   return (

@@ -1,4 +1,4 @@
-import { createContext, ReactChild, useEffect, useMemo, useState } from "react";
+import { createContext, ReactChild, useEffect, useState } from "react";
 import { OrderType } from "../components/Order/Type";
 
 export const OrderContext = createContext([]);
