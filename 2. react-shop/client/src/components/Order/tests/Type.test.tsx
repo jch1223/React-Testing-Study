@@ -21,7 +21,7 @@ test("이미지가 렌더링 되어야 합니다.", async () => {
 
 test("데이터를 가져오는데에 실패하면 에러 배너가 나타나야 합니다.", async () => {
   server.resetHandlers(
-    rest.get("http://localhost:5000/products", (req, res, ctx) => {
+    rest.get("http://localhost:5001/products", (req, res, ctx) => {
       return res(ctx.status(500));
     })
   );

@@ -1,4 +1,4 @@
-import {  screen, waitFor } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import App from "./App";
 import { render } from "./test-utils";
@@ -75,10 +75,8 @@ test("From order to order completion", async () => {
   });
   userEvent.click(firstPageButton);
 
-  const productsTotal = screen.getByText("상품 총 가격: 0");
+  const [productsTotal, optionsTotal] = screen.getAllByText("총 가격: 0");
   expect(productsTotal).toBeInTheDocument();
-
-  const optionsTotal = screen.getByText("옵션 총 가격: 0");
   expect(optionsTotal).toBeInTheDocument();
 
   await waitFor(() => {

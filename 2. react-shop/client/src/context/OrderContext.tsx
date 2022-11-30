@@ -24,14 +24,15 @@ type OrderCounts = {
   [key in OrderType]: Map<string, number>;
 };
 
-interface OrderDatas extends OrderCounts {
+export interface OrderDatas extends OrderCounts {
   totals: { products: number; options: number; total: number };
 }
 
 export const OrderContext = createContext<
   | [
       OrderDatas,
-      (itemName: string, newItemCount: number, orderType: OrderType) => void
+      (itemName: string, newItemCount: number, orderType: OrderType) => void,
+      () => void
     ]
   | []
 >([]);
@@ -73,9 +74,16 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
     setOrderCounts(newOrderCounts);
   };
 
+  const resetOrderDatas = () => {
+    setOrderCounts({
+      products: new Map(),
+      options: new Map(),
+    });
+  };
+
   return (
     <OrderContext.Provider
-      value={[{ ...orderCounts, totals }, updateItemCount]}
+      value={[{ ...orderCounts, totals }, updateItemCount, resetOrderDatas]}
     >
       {children}
     </OrderContext.Provider>
