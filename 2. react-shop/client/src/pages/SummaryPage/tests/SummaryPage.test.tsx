@@ -1,5 +1,6 @@
 import SummaryPage from "../SummaryPage";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
+import { render } from "../../../test-utils";
 
 test("체크박스와 버튼이 렌더링 되어야 합니다.", () => {
   render(<SummaryPage />);

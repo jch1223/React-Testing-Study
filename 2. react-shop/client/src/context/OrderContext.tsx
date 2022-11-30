@@ -1,8 +1,6 @@
 import { createContext, ReactChild, useEffect, useState } from "react";
 import { OrderType } from "../components/Order/Type";
 
-export const OrderContext = createContext([]);
-
 const pricePerItem = {
   products: 1000,
   options: 500,
@@ -25,6 +23,18 @@ interface OrderContextProviderProps {
 type OrderCounts = {
   [key in OrderType]: Map<string, number>;
 };
+
+interface OrderDatas extends OrderCounts {
+  totals: { products: number; options: number; total: number };
+}
+
+export const OrderContext = createContext<
+  | [
+      OrderDatas,
+      (itemName: string, newItemCount: number, orderType: OrderType) => void
+    ]
+  | []
+>([]);
 
 export function OrderContextProvider({ children }: OrderContextProviderProps) {
   const [orderCounts, setOrderCounts] = useState<OrderCounts>({

@@ -9,8 +9,6 @@ interface OrderPageProps {
 const OrderPage = ({ setStep }: OrderPageProps) => {
   const [orderData] = useContext(OrderContext);
 
-  console.log(orderData);
-
   return (
     <div>
       <h1>travel products</h1>
