@@ -2,7 +2,11 @@ import React, { useContext } from "react";
 import Type from "../../components/Order/Type";
 import { OrderContext } from "../../context/OrderContext";
 
-const OrderPage = () => {
+interface OrderPageProps {
+  setStep?: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const OrderPage = ({ setStep }: OrderPageProps) => {
   const [orderData] = useContext(OrderContext);
 
   console.log(orderData);
@@ -20,7 +24,7 @@ const OrderPage = () => {
         <div>
           <h2>Total Price: {orderData.totals.total}</h2>
           <br />
-          <button>주문</button>
+          <button onClick={() => setStep(1)}>주문하기</button>
         </div>
       </div>
     </div>
