@@ -24,11 +24,12 @@ it("handles a successful response", () => {
   // defined above.
 });
 
+//https://mswjs.io/docs/api/setup-server/use#permanent-override
 it("handles an error response", () => {
   serverExample.use(
     // In this paticular test respond to the same request with a 404 response.
     rest.get("/resource", (req, res, ctx) => {
-      return res(ctx.status(404));
+      return res.once(ctx.status(404));
     })
   );
 
