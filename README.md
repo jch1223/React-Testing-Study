@@ -62,7 +62,7 @@ RTL는 컴포넌트의 구현 세부 정보를 테스트 하기 보다 사용자
 
 ### jest debuging
 
-- p -> 정규식으로 파일 이름을 추적하여 테스트
+- 실행 후 터미널에서 p -> 정규식으로 파일 이름을 추적하여 테스트
 - `.only` 하나의 테스트만 실행하고 싶을 때
 - `.skip` 테스트를 스킵하고 싶을 때
 
@@ -97,3 +97,9 @@ RTL는 컴포넌트의 구현 세부 정보를 테스트 하기 보다 사용자
 ### react 18버전에서 test-library 버전 호환성 에러
 
 - `testlibray in react 18` 키워드로 검색 후 https://stackoverflow.com/questions/71685441/react-testing-library-gives-console-error-for-reactdom-render-in-react-18 글을 확인하여 test-library 최신 버전으로 업데이트
+
+## 유용한 method
+
+### logRoles
+
+- 특정 컴포넌트의 role을 확인 할 수 있는 메서드
